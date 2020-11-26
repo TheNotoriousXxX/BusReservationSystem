@@ -7,7 +7,7 @@
 
 
 void book()
-{   
+{   system("cls");
 	int ID;                                     
 	FILE *fp;
 	FILE *po;
@@ -51,7 +51,7 @@ void book()
     printf("\n");
     printf("\n");
     if(zoo<=25)
-    {
+    {system("cls");
 	 printf("enter your citizenship no or ID no :");
 	 scanf("%d",&ID);
 	 printf("enter your name :");
@@ -94,6 +94,7 @@ void book()
          }
 	     else
 	     {
+	     system("cls");	
          // file doesn't exist
          printf("ID :");         //your condition here
 	     printf("\t");
@@ -147,7 +148,7 @@ system(" dir /a:-d /s /b \"G:\\project\" | find /c \":\" > batt.txt");
 }
 
 void cancel()
-{   
+{   system("cls");
     int ID;
     int no;
 	char pswd[20]="ID";
@@ -169,10 +170,12 @@ void cancel()
 	strcat(pswd,rem);
 	strcat(wow,pswd);
 	if(remove(wow)==0 && remove(soso)==0)
-	{printf("successfully cancelled reservation");
+	{system("cls");
+	printf("successfully cancelled reservation");
 	}
 	else
-	{printf("couldn't cancel provide valid  citizenship no \(ID no\) and seat no ");
+	{system("cls");
+	printf("couldn't cancel provide valid  citizenship no \(ID no\) and seat no ");
 	}
     system(" dir /a:-d /s /b \"G:\\project\" | find /c \":\" > batt.txt");
   
@@ -180,6 +183,8 @@ void cancel()
 
 void status()
 {
+	system("cls");
+	
 //your code here	
 char shubs[40];
  //your code here
@@ -228,8 +233,47 @@ else
 }
 }
 
+void login()
+{
+    char studentID[]="user", password[]="123456", id[20], p[20];
+    int n=1, x, y;
+
+    do{
+         printf("\n Enter user name :");
+         scanf("%s", &id);
+         fflush(stdout);
+
+         printf("\nPassword:");
+         scanf("%s", &p);
+         fflush(stdout);
+
+         x=strcmp(id, studentID);
+         y=strcmp(p, password);
+
+         if(x==0 && y==0){
+           printf("\nSucessfully Logged In");
+           break;
+         }else {
+           printf("\nWrong Password, try again", 5-n);
+            getch();
+            n++;}
+
+         if(n>5){
+          printf("\nAccess Denied");
+          getch();
+          }
+
+       }while (n<=5);
+
+}
+
 int main()
 {
+login();
+printf("\n");
+printf("------");
+printf("\n");
+system("cls");
 int ch;	
 printf("Enter a choice");
 printf("\n");
@@ -263,4 +307,3 @@ switch(ch)
 	 } 	
 	return 0;
 }
-
