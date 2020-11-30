@@ -16,17 +16,17 @@ void book()
 	char neew[20];
 	char wnum[20];
 	char pswd[20]="ID";
-	char wow[20]="G:\\project\\";
+	char wow[20]="C:\\Users\\Dell\\Music\\Documents\\project\\";
 	char name[20];
 	char hoho[50]="seat";
-	char gogo[50]="G:\\seatno\\";
+	char gogo[50]="C:\\Users\\Dell\\Music\\Documents\\seatno\\";
 	int i;
 	int z;
 	char dosa[50];
 	char soso[50];
 	char oreo[50];
 	char orio[50]="seat";
-	char uno[50]="G:\\seatno\\";
+	char uno[50]="C:\\Users\\Dell\\Music\\Documents\\seatno\\";
 	char c[25];
 	FILE *fpp;
 	int m=0;
@@ -148,7 +148,7 @@ void book()
   	printf("\n");
   	printf("All seats are reserved");
   }  
-system(" dir /a:-d /s /b \"G:\\project\" | find /c \":\" > batt.txt"); 
+system(" dir /a:-d /s /b \"C:\\Users\\Dell\\Music\\Documents\\project\" | find /c \":\" > batt.txt"); 
 }
 
 void cancel()
@@ -157,10 +157,10 @@ void cancel()
     int no;
 	char pswd[20]="ID";
 	char rem[20];
-	char wow[20]="G:\\project\\";
+	char wow[20]="C:\\Users\\Dell\\Music\\Documents\\project\\";
 	char seat[20];
 	char gogo[50]="seat";
-	char soso[50]="G:\\seatno\\";
+	char soso[50]="C:\\Users\\Dell\\Music\\Documents\\seatno\\";
 	printf("enter your citizenship no or ID no :");
 	scanf("%d",&ID);
 	printf("enter your seat no :");
@@ -183,7 +183,7 @@ void cancel()
 	else
 	{printf("couldn't cancel provide valid  citizenship no \(ID no\) and seat no ");
 	}
-    system(" dir /a:-d /s /b \"G:\\project\" | find /c \":\" > batt.txt");
+    system(" dir /a:-d /s /b \"C:\\Users\\Dell\\Music\\Documents\\project\" | find /c \":\" > batt.txt");
   
 }
 
@@ -225,7 +225,7 @@ else
 {
  DIR *d;
      struct dirent *dir;
-     d = opendir("G:\\seatno\\");
+     d = opendir("C:\\Users\\Dell\\Music\\Documents\\seatno\\");
      if (d)
      {   
          while ((dir = readdir(d)) != NULL)
@@ -234,7 +234,7 @@ else
          }
          closedir(d);
      }
- system(" dir /a:-d /s /b \"G:\\project\" | find /c \":\" > batt.txt");   
+ system(" dir /a:-d /s /b \"C:\\Users\\Dell\\Music\\Documents\\project\" | find /c \":\" > batt.txt");   
 }
 }
 
@@ -242,7 +242,7 @@ void view()
 {   system("cls");
 	DIR *d;
      struct dirent *dir;
-     d = opendir("G:\\project\\");
+     d = opendir("C:\\Users\\Dell\\Music\\Documents\\project\\");
      if (d)
      {   
          while ((dir = readdir(d)) != NULL)
@@ -284,7 +284,6 @@ void login()
    }
    password[index] = '\0';
  
-   printf("\nPassword String = %s", password);
          
 
          x=strcmp(id, studentID);
@@ -338,7 +337,6 @@ void login2()
    }
    password[index] = '\0';
  
-   printf("\nPassword String = %s", password);
          
 
          x=strcmp(id, studentID);
@@ -441,3 +439,6 @@ return 0;
 //machhapuchre
 //banijya
 //if batt.txt doesn't exist then make it in main function
+//returns if the case is wrong
+//password masking
+//admin only priveledge
