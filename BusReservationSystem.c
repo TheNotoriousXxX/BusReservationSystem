@@ -205,7 +205,7 @@ char shubs[40];
 	printf("couldn't open file");
 	return 1;
 	}
-	printf("Seats booked till now ==>");
+	printf("No of seats remaining ==>");
 	while( (c[m]=fgetc(fpp)) != EOF )
     {
     //your code here	
@@ -213,7 +213,7 @@ char shubs[40];
     m++;
     }
     zoo=atoi(p);
-    printf("%d",zoo);
+    printf("%d",25-zoo);
 	
 if(zoo==0)
 {
@@ -274,42 +274,51 @@ void login()
 
 int main()
 {
+	int ch;
 system("color 6d");
 login();
- system("cls");
+system("cls");
 printf("\n");
-printf("------");
-printf("\n");
-int ch;	
-printf("Enter a choice");
-printf("\n");
-printf("Enter 1 for booking             ::");
-printf("\n");
-printf("Ehter 2 for cancelling          ::");
-printf("\n");
-printf("Enter 3 for viewing seat status ::");
-printf("\n");
-printf("-------");
-printf("\n");
-printf("Enter your choice here ==>");
-scanf("%d",&ch);
-printf("\n");
-printf("------");
-printf("\n");
-switch(ch)
-{
-	case 1:
-		book();
-		break;
-	case 2:
-		cancel();
-		break;	
-	case 3:
-		status();
-		break;
-	default:
-		printf("option is not correct");	
+flagg:	
+ printf(" \t      ==================================");
+ printf("\n");
+ printf(" \t ||   Enter a choice                  ::   ||");
+ printf("\n");
+ printf(" \t ||   Enter 1 for booking             ::   ||");           
+ printf("\n");
+ printf(" \t ||   Ehter 2 for cancelling          ::   ||");
+ printf("\n");
+ printf(" \t ||   Enter 3 for viewing seat status ::   ||");
+ printf("\n");
+ printf(" \t      ==================================");
+ printf("\n");
+ printf("Enter your choice here ==>");
+ scanf("%d",&ch);
+ printf("\n");
+ printf("------");
+ printf("\n");
+ switch(ch)
+  {
+  case 1:
+	book();
+	sleep(5);
+	break;
+  case 2:
+	cancel();
+	sleep(5);
+	break;
+  case 3:
+	status();
+	sleep(5);
+    break;
+  default:
+	printf("option is not correct");	
 		
-	 } 	
-	return 0;
+  }
+system("cls");   
+goto flagg; 	
+return 0;
 }
+//machhapuchre
+//banijya
+//
