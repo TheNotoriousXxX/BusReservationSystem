@@ -7,7 +7,7 @@
 
 
 void book()
-{   
+{   system("cls");
 	int ID;                                     
 	FILE *fp;
 	FILE *po;
@@ -52,6 +52,7 @@ void book()
     printf("\n");
     if(zoo<=25)
     {
+      system("cls");
 	 printf("enter your citizenship no or ID no :");
 	 scanf("%d",&ID);
 	 printf("enter your name :");
@@ -72,11 +73,11 @@ void book()
 	  strcat(orio,oreo);
 	  strcat(uno,orio);
 	  strcat(soso,".txt");
-	    strcat(hoho,soso);
-	    strcat(gogo,hoho);
-        strcat(wnum,".txt");
-        strcat(pswd,wnum);
-        strcat(wow,pswd);
+	  strcat(hoho,soso);
+	  strcat(gogo,hoho);
+      strcat(wnum,".txt");
+      strcat(pswd,wnum);
+      strcat(wow,pswd);
 	  if( access(wow , F_OK ) != -1 )
 	  {
 	  	printf("ID match enter other id");
@@ -110,6 +111,10 @@ void book()
 	     printf("%d",1);
 	     printf("\n");
 	     printf("your ticket has been booked");
+	     printf("\n");
+         printf("------");
+	     printf("\n");
+	     printf("500 rupees have been deducted from your account");
 	     fp=fopen(wow,"w");
 	     po=fopen(gogo,"w");
 	     fprintf(fp,"\t ID no :");
@@ -147,7 +152,7 @@ system(" dir /a:-d /s /b \"G:\\project\" | find /c \":\" > batt.txt");
 }
 
 void cancel()
-{   
+{    system("cls");
     int ID;
     int no;
 	char pswd[20]="ID";
@@ -156,7 +161,7 @@ void cancel()
 	char seat[20];
 	char gogo[50]="seat";
 	char soso[50]="G:\\seatno\\";
-	printf("enter your citizenshipno or ID no :");
+	printf("enter your citizenship no or ID no :");
 	scanf("%d",&ID);
 	printf("enter your seat no :");
 	scanf("%d",&no);
@@ -170,6 +175,10 @@ void cancel()
 	strcat(wow,pswd);
 	if(remove(wow)==0 && remove(soso)==0)
 	{printf("successfully cancelled reservation");
+	printf("\n");
+	printf("------");
+	printf("\n");
+	 printf("500 rupees have been returned to your account");
 	}
 	else
 	{printf("couldn't cancel provide valid  citizenship no \(ID no\) and seat no ");
@@ -180,6 +189,7 @@ void cancel()
 
 void status()
 {
+ system("cls");	
 //your code here	
 char shubs[40];
  //your code here
@@ -228,8 +238,48 @@ else
 }
 }
 
+void login()
+{
+    char studentID[]="user", password[]="123456", id[20], p[20];
+    int n=1, x, y;
+
+    do{
+         printf("\n Enter user name :");
+         scanf("%s", &id);
+         fflush(stdout);
+
+         printf("\nPassword:");
+         scanf("%s", &p);
+         fflush(stdout);
+
+         x=strcmp(id, studentID);
+         y=strcmp(p, password);
+
+         if(x==0 && y==0){
+           printf("\nSucessfully Logged In");
+           break;
+         }else {
+           printf("\nWrong Password, try again", 5-n);
+            getch();
+            n++;}
+
+         if(n>5){
+          printf("\nAccess Denied");
+          getch();
+          }
+
+       }while (n<=5);
+
+}
+
 int main()
 {
+system("color 6d");
+login();
+ system("cls");
+printf("\n");
+printf("------");
+printf("\n");
 int ch;	
 printf("Enter a choice");
 printf("\n");
@@ -263,4 +313,3 @@ switch(ch)
 	 } 	
 	return 0;
 }
-
