@@ -442,5 +442,5 @@ return 0;
 //returns if the case is wrong
 //password masking
 //admin only priveledge
-//created the folders seatno and project in c drive in documents directory
+//created the folders seatno and project in G drive in documents directory
 //exiting the function
