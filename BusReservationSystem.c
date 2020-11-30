@@ -383,6 +383,8 @@ flagg:
   case 4:
   	system("cls");
   	printf("this facility is for admin only");
+  	printf("\n");
+  	printf("please wait....");
   	sleep(2);
     login2();
   	view();
