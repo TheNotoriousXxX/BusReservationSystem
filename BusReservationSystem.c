@@ -255,21 +255,40 @@ void view()
 }
 
 void login()
-{   system("cls");
-    char studentID[]="user", password[]="123456", id[20], p[20];
+{    system("cls");
+	 char studentID[]="user", pass[]="123456", id[20], p[20];
     int n=1, x, y;
+    char password[128], c;
+   int index = 0;
 
     do{
          printf("\n Enter user name :");
          scanf("%s", &id);
          fflush(stdout);
 
-         printf("\nPassword:");
-         scanf("%s", &p);
-         fflush(stdout);
+         printf("Enter Password : ");
+   /* 13 is ASCII value of Enter key */
+   while((c = getch()) != 13){
+       if(index < 0)
+           index = 0;
+       /* 8 is ASCII value of BACKSPACE character */
+       if(c == 8){
+           putch('\b');
+           putch(NULL);
+           putch('\b');
+           index--;
+       continue;
+       }
+       password[index++] = c;
+       putch('*');
+   }
+   password[index] = '\0';
+ 
+   printf("\nPassword String = %s", password);
+         
 
          x=strcmp(id, studentID);
-         y=strcmp(p, password);
+         y=strcmp(password, pass);
 
          if(x==0 && y==0){
            printf("\nSucessfully Logged In");
@@ -287,23 +306,43 @@ void login()
 
        }while (n<=5);
 
+
 }
 void login2()
 {   system("cls");
-	 char studentID[]="admin", password[]="admin", id[20], p[20];
+	 char studentID[]="admin", pass[]="admin", id[20], p[20];
     int n=1, x, y;
+    char password[128], c;
+   int index = 0;
 
     do{
          printf("\n Enter user name :");
          scanf("%s", &id);
          fflush(stdout);
 
-         printf("\nPassword:");
-         scanf("%s", &p);
-         fflush(stdout);
+         printf("Enter Password : ");
+   /* 13 is ASCII value of Enter key */
+   while((c = getch()) != 13){
+       if(index < 0)
+           index = 0;
+       /* 8 is ASCII value of BACKSPACE character */
+       if(c == 8){
+           putch('\b');
+           putch(NULL);
+           putch('\b');
+           index--;
+       continue;
+       }
+       password[index++] = c;
+       putch('*');
+   }
+   password[index] = '\0';
+ 
+   printf("\nPassword String = %s", password);
+         
 
          x=strcmp(id, studentID);
-         y=strcmp(p, password);
+         y=strcmp(password, pass);
 
          if(x==0 && y==0){
            printf("\nSucessfully Logged In");
