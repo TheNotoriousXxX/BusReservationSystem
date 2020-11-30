@@ -436,9 +436,3 @@ goto flagg;
 return 0;
 }
 
-//machhapuchre
-//banijya
-//if batt.txt doesn't exist then make it in main function
-//returns if the case is wrong
-//password masking
-//admin only priveledge
