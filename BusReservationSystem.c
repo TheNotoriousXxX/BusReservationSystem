@@ -7,7 +7,7 @@
 
 
 void book()
-{   
+{   system("cls");
 	int ID;                                     
 	FILE *fp;
 	FILE *po;
@@ -34,11 +34,7 @@ void book()
 	int zoo;
 	fpp=fopen("batt.txt","r");
 	
-	if(fpp==NULL)
-	{
-	printf("couldn't open file");
-	return 1;
-	}
+	
 	printf("Seats booked till now ==>");
 	while( (c[m]=fgetc(fpp)) != EOF )
     {
@@ -52,6 +48,7 @@ void book()
     printf("\n");
     if(zoo<=25)
     {
+      system("cls");
 	 printf("enter your citizenship no or ID no :");
 	 scanf("%d",&ID);
 	 printf("enter your name :");
@@ -72,11 +69,11 @@ void book()
 	  strcat(orio,oreo);
 	  strcat(uno,orio);
 	  strcat(soso,".txt");
-	    strcat(hoho,soso);
-	    strcat(gogo,hoho);
-        strcat(wnum,".txt");
-        strcat(pswd,wnum);
-        strcat(wow,pswd);
+	  strcat(hoho,soso);
+	  strcat(gogo,hoho);
+      strcat(wnum,".txt");
+      strcat(pswd,wnum);
+      strcat(wow,pswd);
 	  if( access(wow , F_OK ) != -1 )
 	  {
 	  	printf("ID match enter other id");
@@ -110,6 +107,10 @@ void book()
 	     printf("%d",1);
 	     printf("\n");
 	     printf("your ticket has been booked");
+	     printf("\n");
+         printf("------");
+	     printf("\n");
+	     printf("500 rupees have been deducted from your account");
 	     fp=fopen(wow,"w");
 	     po=fopen(gogo,"w");
 	     fprintf(fp,"\t ID no :");
@@ -147,7 +148,7 @@ system(" dir /a:-d /s /b \"G:\\project\" | find /c \":\" > batt.txt");
 }
 
 void cancel()
-{   
+{    system("cls");
     int ID;
     int no;
 	char pswd[20]="ID";
@@ -156,7 +157,7 @@ void cancel()
 	char seat[20];
 	char gogo[50]="seat";
 	char soso[50]="G:\\seatno\\";
-	printf("enter your citizenshipno or ID no :");
+	printf("enter your citizenship no or ID no :");
 	scanf("%d",&ID);
 	printf("enter your seat no :");
 	scanf("%d",&no);
@@ -170,9 +171,13 @@ void cancel()
 	strcat(wow,pswd);
 	if(remove(wow)==0 && remove(soso)==0)
 	{printf("successfully cancelled reservation");
+	printf("\n");
+	printf("------");
+	printf("\n");
+	 printf("500 rupees have been returned to your account");
 	}
 	else
-	{printf("couldn't cancel provide valid  citizenship no \(ID no\) and seat no ");
+	{printf("couldn't cancel provide valid  citizenship no or ID no and seat no ");
 	}
     system(" dir /a:-d /s /b \"G:\\project\" | find /c \":\" > batt.txt");
   
@@ -180,6 +185,7 @@ void cancel()
 
 void status()
 {
+ system("cls");	
 //your code here	
 char shubs[40];
  //your code here
@@ -190,12 +196,8 @@ char shubs[40];
 	int zoo;
 	fpp=fopen("batt.txt","r");
 	
-	if(fpp==NULL)
-	{
-	printf("couldn't open file");
-	return 1;
-	}
-	printf("Seats booked till now ==>");
+	
+	printf("No of seats remaining ==>");
 	while( (c[m]=fgetc(fpp)) != EOF )
     {
     //your code here	
@@ -203,7 +205,7 @@ char shubs[40];
     m++;
     }
     zoo=atoi(p);
-    printf("%d",zoo);
+    printf("%d",25-zoo);
 	
 if(zoo==0)
 {
@@ -228,39 +230,191 @@ else
 }
 }
 
+void view()
+{   system("cls");
+	DIR *d;
+     struct dirent *dir;
+     printf("All the customer id ......");
+     d = opendir("G:\\seatno\\");
+     if (d)
+     {   
+         while ((dir = readdir(d)) != NULL)
+         {
+             printf("%s\n", dir->d_name);
+         }
+         closedir(d);
+      }
+	
+}
+
+void login()
+{   system("cls");
+	 char studentID[]="user", pass[]="123456", id[20], p[20];
+    int n=1, x, y;
+    char password[128], c;
+   int index = 0;
+
+    do{  system("cls");
+         printf("\n Enter user name :");
+         scanf("%s", &id);
+         fflush(stdout);
+		 
+         printf("Enter Password : ");
+        scanf("%s",&password);
+         fflush(stdout);
+
+         x=strcmp(id, studentID);
+         y=strcmp(password, pass);
+
+         if(x==0 && y==0){
+           printf("\nSucessfully Logged In");
+           sleep(1);
+           break;
+         }
+         else {
+           printf("\nWrong Password", 5-n);
+           printf("\n");
+           printf("Press enter to try again");
+            getch();
+            n++;}
+
+         if(n>5){
+          system("cls");	
+          printf("\nToo many attempts");
+          printf("\nAccess Denied");
+          printf("\nClosing the program.....");
+          sleep(2);
+          exit(0);
+          getch();
+          }
+
+       }while (n<=5);
+
+	
+}
+
+
+void login2()
+{   system("cls");
+	 char studentID[]="admin", pass[]="admin", id[20], p[20];
+    int n=1, x, y;
+    char password[128], c;
+   int index = 0;
+
+    do{  system("cls");
+         printf("\n Enter user name :");
+         scanf("%s", &id);
+         fflush(stdout);
+		 
+         printf("Enter Password : ");
+        scanf("%s",&password);
+         fflush(stdout);
+
+         x=strcmp(id, studentID);
+         y=strcmp(password, pass);
+
+         if(x==0 && y==0){
+           printf("\nSucessfully Logged In");
+           sleep(1);
+           break;
+         }
+         else {
+           printf("\nWrong Password", 5-n);
+           printf("\n");
+           printf("Press enter to try again");
+            getch();
+            n++;}
+
+         if(n>5){
+          system("cls");	
+          printf("\nToo many attempts");
+          printf("\nAccess Denied");
+          printf("\nClosing the program.....");
+          sleep(2);
+          exit(0);
+          getch();
+          }
+
+       }while (n<=5);
+
+	
+}
+
+
+  
+
 int main()
 {
-int ch;	
-printf("Enter a choice");
-printf("\n");
-printf("Enter 1 for booking             ::");
-printf("\n");
-printf("Ehter 2 for cancelling          ::");
-printf("\n");
-printf("Enter 3 for viewing seat status ::");
-printf("\n");
-printf("-------");
-printf("\n");
-printf("Enter your choice here ==>");
-scanf("%d",&ch);
-printf("\n");
-printf("------");
-printf("\n");
-switch(ch)
+int chh;
+char ch[1];
+FILE *qq;
+if(access("batt.txt",F_OK)!=-1)
 {
-	case 1:
-		book();
-		break;
-	case 2:
-		cancel();
-		break;	
-	case 3:
-		status();
-		break;
-	default:
-		printf("option is not correct");	
-		
-	 } 	
-	return 0;
+printf("---------");
+}
+else
+{
+qq=fopen("batt.txt","w");
+fclose(qq);	
+}
+system("color 6d");
+login();
+system("cls");
+printf("\n");
+
+flagg:	
+ printf(" \t      ==================================");
+ printf("\n");
+ printf(" \t ||   Enter a choice                  ::   ||");
+ printf("\n");
+ printf(" \t ||   Enter 1 for booking             ::   ||");           
+ printf("\n");
+ printf(" \t ||   Enter 2 for cancelling          ::   ||");
+ printf("\n");
+ printf(" \t ||   Enter 3 for viewing seat status ::   ||");
+ printf("\n");
+ printf(" \t ||   Enter 4 for viewing user status ::   ||");
+ printf("\n"); 
+ printf(" \t ||   Enter 5 for exiting the program ::   ||");
+ printf("\n");
+ printf(" \t      ==================================");
+ printf("\n");
+ printf("Enter your choice here ==>");
+ scanf("%c",&ch);
+ chh=atoi(ch);
+ printf("\n");
+ printf("------");
+ printf("\n");
+ switch(chh)
+  {
+  case 1:
+	book();
+	sleep(5);
+	break;
+  case 2:
+	cancel();
+	sleep(5);
+	break;
+  case 3:
+	status();
+	sleep(5);
+    break;
+  case 4:
+  	system("cls");
+  	printf("this facility is for admin only");
+  	printf("\n");
+  	printf("please wait....");
+  	sleep(2);
+    login2();
+  	view();
+  	sleep(5);
+  	break;
+  case 5:
+  	system("cls");
+    exit(0);
+  }
+system("cls");   
+goto flagg; 	
+return 0;
 }
 
