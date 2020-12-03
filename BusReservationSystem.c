@@ -58,7 +58,7 @@ void book()
 	 printf("enter seat no from 1 to 25 ==>");
 	 scanf("%d",&z);
 	 printf("\n");
-	 if(z<=25)
+	 if(z>0 && z<=25)
 	 {
 	  itoa(z,dosa,10);
 	  itoa(z,soso,10);
