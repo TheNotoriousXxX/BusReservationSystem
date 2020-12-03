@@ -235,7 +235,7 @@ void view()
 	DIR *d;
      struct dirent *dir;
      printf("All the customer id ......");
-     d = opendir("G:\\seatno\\");
+     d = opendir("G:\\project\\");
      if (d)
      {   
          while ((dir = readdir(d)) != NULL)
