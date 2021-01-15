@@ -3,8 +3,8 @@
 #include<stdio.h>
 #include<dirent.h>
 #include<unistd.h>
-
-
+#include<string.h>
+#include<stdbool.h>
 
 void book()
 {   system("cls");
@@ -16,17 +16,17 @@ void book()
 	char neew[20];
 	char wnum[20];
 	char pswd[20]="ID";
-	char wow[20]="C:\\Users\\Dell\\Music\\Documents\\project\\";
+	char wow[20]="G:\\project\\";
 	char name[20];
 	char hoho[50]="seat";
-	char gogo[50]="C:\\Users\\Dell\\Music\\Documents\\seatno\\";
+	char gogo[50]="G:\\seatno\\";
 	int i;
 	int z;
 	char dosa[50];
 	char soso[50];
 	char oreo[50];
 	char orio[50]="seat";
-	char uno[50]="C:\\Users\\Dell\\Music\\Documents\\seatno\\";
+	char uno[50]="G:\\seatno\\";
 	char c[25];
 	FILE *fpp;
 	int m=0;
@@ -34,11 +34,7 @@ void book()
 	int zoo;
 	fpp=fopen("batt.txt","r");
 	
-	if(fpp==NULL)
-	{
-	printf("couldn't open file");
-	return 1;
-	}
+	
 	printf("Seats booked till now ==>");
 	while( (c[m]=fgetc(fpp)) != EOF )
     {
@@ -53,7 +49,8 @@ void book()
     if(zoo<=25)
     {
       system("cls");
-	 printf("enter your citizenship no or ID no :");
+     printf("ID no should be a nunber or else it is regarded as zero");
+	 printf("\n enter your citizenship no or ID no :");
 	 scanf("%d",&ID);
 	 printf("enter your name :");
 	 scanf("%s",&name);
@@ -62,7 +59,7 @@ void book()
 	 printf("enter seat no from 1 to 25 ==>");
 	 scanf("%d",&z);
 	 printf("\n");
-	 if(z<=25)
+	 if(z>0 && z<=25)
 	 {
 	  itoa(z,dosa,10);
 	  itoa(z,soso,10);
@@ -114,7 +111,7 @@ void book()
 	     printf("\n");
          printf("------");
 	     printf("\n");
-	     printf("500 rupees have been deducted from your account");
+	     //printf("500 rupees have been deducted from your account");
 	     fp=fopen(wow,"w");
 	     po=fopen(gogo,"w");
 	     fprintf(fp,"\t ID no :");
@@ -148,7 +145,7 @@ void book()
   	printf("\n");
   	printf("All seats are reserved");
   }  
-system(" dir /a:-d /s /b \"C:\\Users\\Dell\\Music\\Documents\\project\" | find /c \":\" > batt.txt"); 
+system(" dir /a:-d /s /b \"G:\\project\" | find /c \":\" > batt.txt"); 
 }
 
 void cancel()
@@ -157,11 +154,12 @@ void cancel()
     int no;
 	char pswd[20]="ID";
 	char rem[20];
-	char wow[20]="C:\\Users\\Dell\\Music\\Documents\\project\\";
+	char wow[20]="G:\\project\\";
 	char seat[20];
 	char gogo[50]="seat";
-	char soso[50]="C:\\Users\\Dell\\Music\\Documents\\seatno\\";
-	printf("enter your citizenship no or ID no :");
+	char soso[50]="G:\\seatno\\";
+	printf("ID number should be a number or it will be regarded as zero");
+	printf("\n enter your citizenship no or ID no :");
 	scanf("%d",&ID);
 	printf("enter your seat no :");
 	scanf("%d",&no);
@@ -178,12 +176,12 @@ void cancel()
 	printf("\n");
 	printf("------");
 	printf("\n");
-	 printf("500 rupees have been returned to your account");
+	//printf("500 rupees have been returned to your account");
 	}
 	else
-	{printf("couldn't cancel provide valid  citizenship no \(ID no\) and seat no ");
+	{printf("couldn't cancel provide valid  citizenship no or ID no and seat no ");
 	}
-    system(" dir /a:-d /s /b \"C:\\Users\\Dell\\Music\\Documents\\project\" | find /c \":\" > batt.txt");
+    system(" dir /a:-d /s /b \"G:\\project\" | find /c \":\" > batt.txt");
   
 }
 
@@ -200,11 +198,7 @@ char shubs[40];
 	int zoo;
 	fpp=fopen("batt.txt","r");
 	
-	if(fpp==NULL)
-	{
-	printf("couldn't open file");
-	return 1;
-	}
+	
 	printf("No of seats remaining ==>");
 	while( (c[m]=fgetc(fpp)) != EOF )
     {
@@ -225,7 +219,7 @@ else
 {
  DIR *d;
      struct dirent *dir;
-     d = opendir("C:\\Users\\Dell\\Music\\Documents\\seatno\\");
+     d = opendir("G:\\seatno\\");
      if (d)
      {   
          while ((dir = readdir(d)) != NULL)
@@ -234,15 +228,68 @@ else
          }
          closedir(d);
      }
- system(" dir /a:-d /s /b \"C:\\Users\\Dell\\Music\\Documents\\project\" | find /c \":\" > batt.txt");   
+ system(" dir /a:-d /s /b \"G:\\project\" | find /c \":\" > batt.txt");   
 }
 }
 
-void view()
+void view(){
+
+system("cls");
+DIR *d;
+struct dirent *dir;
+char pasword[10],usrname[10], ch;
+ int i;
+ char password[]="123456";
+ char user[]="admin";
+ int x,y,m;
+ int n=1;
+ bool l=false;
+    
+
+do{that:
+ system("cls");
+ printf("Enter User name: ");
+ scanf("%s",&usrname);
+ printf("Enter the 6 character password : ");
+
+ for(i=0;i<6;i++)
+ {
+  ch = getch();
+  pasword[i] = ch;
+  ch = '*' ;
+  printf("%c",ch);
+ }
+
+x=strcmp(usrname,user);
+y=strcmp(password,pasword);
+
+if(x==0 && y==0)
 {   system("cls");
-	DIR *d;
-     struct dirent *dir;
-     d = opendir("C:\\Users\\Dell\\Music\\Documents\\project\\");
+	printf("\n Login successful");
+	sleep(1);
+	l=true;
+	
+}
+
+ else
+ {  
+ 	printf("\n Please try again");
+ 	sleep(1);
+ 	n++;
+ 	goto that;
+ }
+if(n>5)
+{
+system("cls");
+printf("\n Access denied");	
+}
+
+if(true)
+    {
+	
+    this:
+     printf("All the customer id ......");
+     d = opendir("G:\\project\\");
      if (d)
      {   
          while ((dir = readdir(d)) != NULL)
@@ -250,116 +297,68 @@ void view()
              printf("%s\n", dir->d_name);
          }
          closedir(d);
+         sleep(5);
+         
       }
-	
+      break;
+  }
+}while(n<=5);
+
 }
+    
+	
+
 
 void login()
-{    system("cls");
-	 char studentID[]="user", pass[]="123456", id[20], p[20];
-    int n=1, x, y;
-    char password[128], c;
-   int index = 0;
+{
+ char pasword[10],usrname[10], ch;
+ int i;
+ char password[]="123456";
+ char user[]="user";
+ int x,y,m;
+ int n=1;
 
-    do{
-         printf("\n Enter user name :");
-         scanf("%s", &id);
-         fflush(stdout);
+do{
+ system("cls");
+ printf("Enter User name: ");
+ scanf("%s",&usrname);
+ printf("Enter the 6 character password : ");
 
-         printf("Enter Password : ");
-   /* 13 is ASCII value of Enter key */
-   while((c = getch()) != 13){
-       if(index < 0)
-           index = 0;
-       /* 8 is ASCII value of BACKSPACE character */
-       if(c == 8){
-           putch('\b');
-           putch(NULL);
-           putch('\b');
-           index--;
-       continue;
-       }
-       password[index++] = c;
-       putch('*');
-   }
-   password[index] = '\0';
- 
-         
+ for(i=0;i<6;i++)
+ {
+  ch = getch();
+  pasword[i] = ch;
+  ch = '*' ;
+  printf("%c",ch);
+ }
 
-         x=strcmp(id, studentID);
-         y=strcmp(password, pass);
+x=strcmp(usrname,user);
+y=strcmp(password,pasword);
 
-         if(x==0 && y==0){
-           printf("\nSucessfully Logged In");
-           sleep(1);
-           break;
-         }else {
-           printf("\nWrong Password, try again", 5-n);
-            getch();
-            n++;}
-
-         if(n>5){
-          printf("\nAccess Denied");
-          getch();
-          }
-
-       }while (n<=5);
-
-
-}
-void login2()
+if(x==0 && y==0)
 {   system("cls");
-	 char studentID[]="admin", pass[]="admin", id[20], p[20];
-    int n=1, x, y;
-    char password[128], c;
-   int index = 0;
-
-    do{
-         printf("\n Enter user name :");
-         scanf("%s", &id);
-         fflush(stdout);
-
-         printf("Enter Password : ");
-   /* 13 is ASCII value of Enter key */
-   while((c = getch()) != 13){
-       if(index < 0)
-           index = 0;
-       /* 8 is ASCII value of BACKSPACE character */
-       if(c == 8){
-           putch('\b');
-           putch(NULL);
-           putch('\b');
-           index--;
-       continue;
-       }
-       password[index++] = c;
-       putch('*');
-   }
-   password[index] = '\0';
- 
-         
-
-         x=strcmp(id, studentID);
-         y=strcmp(password, pass);
-
-         if(x==0 && y==0){
-           printf("\nSucessfully Logged In");
-           sleep(1);
-           break;
-         }else {
-           printf("\nWrong Password, try again", 5-n);
-            getch();
-            n++;}
-
-         if(n>5){
-          printf("\nAccess Denied");
-          getch();
-          }
-
-       }while (n<=5);
-
-	
+	printf("\n Login successful");
+	sleep(1);
+	break;
 }
+
+ else
+ {  
+ 	printf("\n Please try again");
+ 	sleep(1);
+ 	n++;
+ }
+if(n>5)
+{
+	exit(0);
+}
+}while(n<=5);
+
+}
+
+
+
+
 
 int main()
 {
@@ -418,14 +417,13 @@ flagg:
 	sleep(5);
     break;
   case 4:
-  	system("cls");
+  	/*system("cls");
   	printf("this facility is for admin only");
   	printf("\n");
   	printf("please wait....");
   	sleep(2);
-    login2();
+    login2();*/
   	view();
-  	sleep(5);
   	break;
   case 5:
   	system("cls");
@@ -435,4 +433,3 @@ system("cls");
 goto flagg; 	
 return 0;
 }
-
