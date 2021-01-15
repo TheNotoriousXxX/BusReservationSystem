@@ -248,7 +248,7 @@ char pasword[10],usrname[10], ch;
 
 do{that:
  system("cls");
- printf("Enter User name: ");
+ printf("Enter admin username: ");
  scanf("%s",&usrname);
  printf("Enter the 6 character password : ");
 
@@ -265,8 +265,8 @@ y=strcmp(password,pasword);
 
 if(x==0 && y==0)
 {   system("cls");
-	printf("\n Login successful");
-	sleep(1);
+	printf("\n Admin login successful");
+	sleep(2);
 	l=true;
 	
 }
@@ -288,6 +288,7 @@ if(true)
     {
 	
     this:
+     system("cls");
      printf("All the customer id ......");
      d = opendir("G:\\project\\");
      if (d)
@@ -417,12 +418,11 @@ flagg:
 	sleep(5);
     break;
   case 4:
-  	/*system("cls");
-  	printf("this facility is for admin only");
+  	system("cls");
+  	printf("This facility is for admin only");
   	printf("\n");
-  	printf("please wait....");
+  	printf("Please wait....");
   	sleep(2);
-    login2();*/
   	view();
   	break;
   case 5:
